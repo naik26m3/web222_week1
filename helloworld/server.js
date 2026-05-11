@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
 
-    res.json({ course: "WEB322", section: "NEE", task: "In-class Assignment 1" });
+    res.json({ course: "WEB322", student: "Kai Ngo", task: "In-class Assignment 1" });
 
 });
 
