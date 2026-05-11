@@ -6,7 +6,7 @@ var HTTP_PORT = process.env.PORT || 8080;
 
 
 
-// setup a 'root' route to listen on the default url path (i.e. '/')  
+// setup a 'root' route to listen on the default url path (i.e. '/')
 
 app.get("/", (req, res) => {
 
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 
 
-// define a route (i.e. an endpoint) to listen on the '/about' url path 
+// define a route (i.e. an endpoint) to listen on the '/about' url path
 
 app.get("/about", (req, res) => {
 
@@ -26,6 +26,10 @@ app.get("/about", (req, res) => {
 
 
 
-// setup http server to listen on HTTP_PORT 
+// setup http server to listen on HTTP_PORT (local dev only — Vercel uses the exported app)
 
-app.listen(HTTP_PORT); 
+if (!process.env.VERCEL) {
+    app.listen(HTTP_PORT, () => console.log(`Server listening on port ${HTTP_PORT}`));
+}
+
+module.exports = app;
